@@ -1,5 +1,5 @@
 #include <iostream>
-#include "PlusMinus.cpp"
+#include "week1.cpp"
 
 using namespace std;
 
@@ -7,6 +7,7 @@ using namespace std;
 // program begins
 int main()
 {
-
+	week1::run();
+	
 	return 0;
 }
