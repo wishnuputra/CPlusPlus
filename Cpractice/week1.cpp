@@ -55,7 +55,7 @@ void miniMaxSum(vector<int> arr)
     cout << minSum << " " << maxSum;
 }
 
-void run()
+void testMinMaxSum()
 {
     vector<int> arr(5);
     arr[0] = 256741038;
@@ -68,6 +68,40 @@ void run()
     week1::miniMaxSum(arr);
 }
 
+string timeConversion(string s)
+{
+    string timeIndicator = s.substr(8,2);
+    string militaryTimeFormat = s.substr(0,8);
+    string hour = s.substr(0,2);
+    string minuteSecond = s.substr(2,6);
 
+    if (timeIndicator == "AM")
+    {
+        if (hour == "12") return "00" + minuteSecond;
+        else return militaryTimeFormat;
+    }
+
+    if (timeIndicator == "PM")
+    {
+        if (hour == "12") return militaryTimeFormat;
+        else
+        {
+            int hourInt = stoi(hour);
+            return to_string(hourInt + 12) + minuteSecond;
+        }
+    }
+
+    return "Invalid Time Format";
+}
+
+void testTimeConversion()
+{
+    cout << timeConversion("100:00:00PM") << endl;
+}
+
+void run()
+{
+    testTimeConversion();
+}
 
 }
